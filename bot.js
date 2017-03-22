@@ -25,9 +25,16 @@ module.exports = function(params) {
 		
 		if (event.type == 'message') 
 		{
-		 if (!event.subtype)
+		 if (!event.subtype) {
 			console.log('vrai message');
-		else 	console.log('autre message');
-		}
+			self.bot.postMessage(event.channel, 'Re !!!');
+			}
+
+		else 	{
+			//self.bot.postMessage(event.channel, 'arrete tes Bots!!!');
+		//});
+			//console.log('autre message');
+			//}
+		}	
 	}
 }
