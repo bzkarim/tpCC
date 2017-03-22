@@ -25,7 +25,7 @@ module.exports = function(params) {
 		
 		if (event.type == 'message') 
 		{
-		 if (!event.subtype) {
+		 if (!event.bot_id) {
 			console.log('vrai message');
 			self.bot.postMessage(event.channel, 'Re !!!');
 			}
