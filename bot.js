@@ -14,6 +14,10 @@ module.exports = function(params) {
 		self.bot.getUser(self.bot.self.name).then(function(user) {
 			self.user = user;
 		});
+
+		setInterval(function() {
+			self.bot.postMessageToChannel('general', 'Salut tout le monde!!!');
+		}, 20000);
 	}
 
 	self.onEvent = function(event) {
