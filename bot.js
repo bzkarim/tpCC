@@ -1,4 +1,5 @@
 const SlackBot = require('slackbots');
+const axios = require('axios');
 module.exports = function(params) {
 	this.bot = null;
 	var self = this;
@@ -16,7 +17,9 @@ module.exports = function(params) {
 		});
 
 		setInterval(function() {
-			self.bot.postMessageToChannel('general', 'Salut tout le monde!!!');
+			axios.get('http://www.chucknorrisfacts.fr/api/get?data=tri:alea;nb=1').then(function(response){
+				self.bot.postMessageToChannel('general', response.data[0].fact);
+			}).catch(console.log); 
 		}, 20000);
 	}
 
@@ -28,7 +31,7 @@ module.exports = function(params) {
 		 if (!event.bot_id) {
 			console.log('vrai message');
 		
-			axios.get('https://www.chucknorrisfacts.fr/api/get?data=tri:alea').then(function(response){
+			axios.get('http://www.chucknorrisfacts.fr/api/get?data=tri:alea;nb=1').then(function(response){
 				
 				console.log(response.status); 
 				self.bot.postMessage(event.channel, response.data[0].fact);
