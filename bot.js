@@ -27,7 +27,15 @@ module.exports = function(params) {
 		{
 		 if (!event.bot_id) {
 			console.log('vrai message');
-			self.bot.postMessage(event.channel, 'Re !!!');
+		
+			axios.get('https://www.chucknorrisfacts.fr/api/get?data=tri:alea').then(function(response){
+				
+				console.log(response.status); 
+				self.bot.postMessage(event.channel, response.data[0].fact);
+				    
+			});  
+
+			
 			}
 
 		//else 	{
