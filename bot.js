@@ -30,7 +30,7 @@ module.exports = function(params) {
 			self.bot.postMessage(event.channel, 'Re !!!');
 			}
 
-		else 	{
+		//else 	{
 			//self.bot.postMessage(event.channel, 'arrete tes Bots!!!');
 		//});
 			//console.log('autre message');
