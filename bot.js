@@ -22,6 +22,12 @@ module.exports = function(params) {
 
 	self.onEvent = function(event) {
 		//reception d'un message
-		console.log(event);
+		
+		if (event.type == 'message') 
+		{
+		 if (!event.subtype)
+			console.log('vrai message');
+		else 	console.log('autre message');
+		}
 	}
 }
